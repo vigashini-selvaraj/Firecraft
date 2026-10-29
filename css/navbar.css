@@ -140,15 +140,79 @@ body.light-theme .nav-links a.active {
     color: #E53224 !important;
 }
 
+/* Ensure no line appears above the navigation links during hover interactions */
+.nav-menu a::after,
+.nav-links a::after {
+    display: none !important;
+    content: none !important;
+    width: 0 !important;
+}
+
 .nav-menu a.active::after,
 .nav-links a.active::after {
-    content: '';
+    display: block !important;
+    content: '' !important;
     position: absolute;
     bottom: 0;
     left: 0;
-    width: 100%;
+    width: 100% !important;
     height: 2px;
     background-color: #E53224 !important;
+}
+
+.nav-menu a:hover::after,
+.nav-links a:hover::after {
+    display: none !important;
+    content: none !important;
+    width: 0 !important;
+}
+
+/* Primary CTA Button in Header */
+.nav-cta-btn,
+.navbar .nav-cta-btn,
+.nav-actions .btn-primary {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    height: 42px;
+    min-height: 42px;
+    padding: 0 20px;
+    background-color: #E53224 !important;
+    background: #E53224 !important;
+    color: #ffffff !important;
+    border-radius: 4px !important;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none !important;
+    border: none !important;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 8px rgba(229, 50, 36, 0.25);
+}
+
+.nav-cta-btn:hover,
+.navbar .nav-cta-btn:hover,
+.nav-actions .btn-primary:hover {
+    background-color: #f04b3d !important;
+    background: #f04b3d !important;
+    color: #ffffff !important;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(229, 50, 36, 0.45);
+}
+
+@media (max-width: 600px) {
+    .nav-cta-btn,
+    .navbar .nav-cta-btn,
+    .nav-actions .btn-primary {
+        height: 36px;
+        min-height: 36px;
+        padding: 0 12px;
+        font-size: 11px;
+    }
 }
 
 /* Nav Actions & Buttons */

@@ -146,7 +146,7 @@
     margin-top: 35px;
     padding: 18px 22px;
     border: 1px solid var(--cart-border);
-    border-radius: 8px;
+    border-radius: 4px;
     background: rgba(255,252,247,.65);
 }
 
@@ -225,7 +225,7 @@
     padding: 31px;
     background: var(--cart-card);
     border: 1px solid var(--cart-border);
-    border-radius: 9px;
+    border-radius: 4px;
     min-width: 0;
 }
 
@@ -302,7 +302,7 @@
     width: 100px;
     height: 112px;
     border: 1px solid var(--cart-border);
-    border-radius: 7px;
+    border-radius: 4px;
     overflow: hidden;
     background: #F0E9DD;
     display: grid;
@@ -371,7 +371,7 @@
     display: flex;
     align-items: center;
     border: 1px solid var(--cart-border);
-    border-radius: 5px;
+    border-radius: 4px;
     overflow: hidden;
     height: 36px;
 }
@@ -460,7 +460,7 @@
     gap: 13px;
     padding: 12px 18px;
     border: 1px solid transparent;
-    border-radius: 5px;
+    border-radius: 4px;
     font-size: 11px !important;
     font-weight: 800 !important;
     cursor: pointer;
@@ -526,7 +526,7 @@
 .cart-page textarea {
     width: 100%;
     border: 1px solid #D7D0C6;
-    border-radius: 5px;
+    border-radius: 4px;
     background: #FFFEFB;
     color: #171513;
     padding: 12px 13px;
@@ -616,7 +616,7 @@
     padding: 16px 12px;
     border: 1px solid transparent;
     border-bottom-color: var(--cart-border);
-    border-radius: 5px;
+    border-radius: 4px;
     cursor: pointer;
     transition: background .2s, border-color .2s;
 }
@@ -709,7 +709,7 @@
     align-items: flex-start;
     padding: 16px;
     margin-top: 12px;
-    border-radius: 5px;
+    border-radius: 4px;
     background: #FFF2DE;
     color: #754B16;
     font-size: 13px;
@@ -897,7 +897,7 @@
 .tracking-result.success {
     padding: 15px;
     background: rgba(40,122,88,.07);
-    border-radius: 5px;
+    border-radius: 4px;
 }
 
 .tracking-hint {
@@ -915,7 +915,7 @@
     padding: 50px 25px;
     margin-top: 30px;
     border: 1px solid var(--cart-border);
-    border-radius: 10px;
+    border-radius: 4px;
     background: var(--cart-card);
 }
 
@@ -961,7 +961,7 @@
     margin-top: 28px;
     padding: 24px 20px;
     border: 1px solid var(--cart-border);
-    border-radius: 8px;
+    border-radius: 4px;
     background: rgba(255,252,247,.6);
 }
 

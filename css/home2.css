@@ -164,21 +164,31 @@ h2 em {
     position: relative; 
 }
 .journey-line {
-    position: absolute; top: 45px; left: 12%; right: 12%; height: 2px; 
+    position: absolute;
+    top: 77px;
+    transform: translateY(-50%);
+    left: 12.5%;
+    right: 12.5%;
+    height: 2px; 
     background: var(--color-border-dark);
+    z-index: 1;
 }
 .journey-step { position: relative; z-index: 2; text-align: center; }
 .step-number { 
-    display: inline-block;
+    display: block;
+    height: 16px;
+    line-height: 16px;
     color: var(--color-red); font-size: 12px; font-weight: 800; 
     font-family: var(--font-body);
-    margin-bottom: 15px;
+    margin-bottom: 16px;
 }
 .step-icon {
     width: 90px; height: 90px; margin: 0 auto 25px;
-    border: 2px solid var(--color-border-dark); border-radius: 50%; display: grid; place-items: center;
+    border: 2px solid var(--color-border-dark); border-radius: 50% !important; display: grid; place-items: center;
     background: var(--color-dark-soft); color: var(--color-red); font-size: 28px;
     transition: var(--transition);
+    position: relative;
+    z-index: 2;
 }
 .journey-step:hover .step-icon {
     background: var(--color-red); color: var(--color-white); border-color: var(--color-red);

@@ -46,15 +46,7 @@
                   <button type="button" class="nav-icon dir-toggle-btn" aria-label="Toggle Direction">
                       LTR
                   </button>
-                  <div class="profile-dropdown-container desktop-only">
-                      <button type="button" class="nav-icon profile-btn" aria-label="Profile">
-                          <i class="fa-solid fa-user"></i>
-                      </button>
-                      <div class="profile-dropdown">
-                          <a href="#">Login</a>
-                          <a href="#">Register</a>
-                      </div>
-                  </div>
+                  <a href="products.html" class="btn btn-primary nav-cta-btn">Shop Now</a>
               </div>
           </div>
       </header>
@@ -199,7 +191,7 @@
       <div class="container faq-layout">
         <div class="faq-intro"><span class="section-eyebrow">GOOD TO KNOW</span><h2>Frequently asked <span>questions.</span></h2><p>Looking for a quick answer? Start here. If you still need help, send us a message.</p><a class="faq-contact-link" href="#contact-form-section">Ask us directly <span aria-hidden="true">↗</span></a></div>
         <div class="faq-accordion">
-          <article class="faq-item" aria-expanded="false"><button class="faq-question" type="button" aria-expanded="false"><span>How do I choose the right Firecraft sauce?</span><i class="fa-solid fa-plus faq-icon" aria-hidden="true"></i></button><div class="faq-answer"><div class="faq-answer-inner">It depends on your heat tolerance and flavor preferences. Explore the product descriptions and heat guide to compare sauces. You can also contact us for help narrowing down your options.</div></div></article>
+          <article class="faq-item" aria-expanded="true"><button class="faq-question" type="button" aria-expanded="true"><span>How do I choose the right Firecraft sauce?</span><i class="fa-solid fa-plus faq-icon" aria-hidden="true"></i></button><div class="faq-answer"><div class="faq-answer-inner">It depends on your heat tolerance and flavor preferences. Explore the product descriptions and heat guide to compare sauces. You can also contact us for help narrowing down your options.</div></div></article>
           <article class="faq-item" aria-expanded="false"><button class="faq-question" type="button" aria-expanded="false"><span>How do I understand the sauce heat levels?</span><i class="fa-solid fa-plus faq-icon" aria-hidden="true"></i></button><div class="faq-answer"><div class="faq-answer-inner">Check the heat rating and product description on the relevant sauce page or bottle label. If you are uncertain about a particular sauce, mention its name in your message.</div></div></article>
           <article class="faq-item" aria-expanded="false"><button class="faq-question" type="button" aria-expanded="false"><span>How can I ask about an order or delivery?</span><i class="fa-solid fa-plus faq-icon" aria-hidden="true"></i></button><div class="faq-answer"><div class="faq-answer-inner">Choose “Order support” in the contact form and include your order number. This helps the team understand which purchase you are asking about.</div></div></article>
           <article class="faq-item" aria-expanded="false"><button class="faq-question" type="button" aria-expanded="false"><span>Can I enquire about wholesale or bulk orders?</span><i class="fa-solid fa-plus faq-icon" aria-hidden="true"></i></button><div class="faq-answer"><div class="faq-answer-inner">Yes. Select “Wholesale &amp; retail” or “Brand partnerships” in the form and include a few details about your business and what you have in mind.</div></div></article>
@@ -310,6 +302,9 @@
       faqItems.forEach((item) => {
         const button = item.querySelector(".faq-question");
         const answer = item.querySelector(".faq-answer");
+        if (item.getAttribute("aria-expanded") === "true") {
+          answer.style.maxHeight = answer.scrollHeight + "px";
+        }
         button.addEventListener("click", () => {
           const shouldOpen = item.getAttribute("aria-expanded") !== "true";
           faqItems.forEach((other) => {

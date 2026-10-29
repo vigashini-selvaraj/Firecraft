@@ -97,7 +97,7 @@
     height: auto;
     background: var(--color-dark-soft);
     border: 1px solid var(--color-border-dark);
-    border-radius: 8px;
+    border-radius: 4px;
     overflow: hidden;
     transition: transform 0.3s ease, border-color 0.3s ease;
 }
@@ -152,7 +152,7 @@
     font-weight: 800;
     letter-spacing: 0.15em;
     padding: 6px 14px;
-    border-radius: 30px;
+    border-radius: 4px;
 }
 .heat-level.mild { background: #333; color: #fff; }
 .heat-level.medium { background: #8B4513; color: #fff; }
@@ -199,7 +199,7 @@
 }
 .heat-step {
     position: relative;
-    border-radius: 8px;
+    border-radius: 4px;
     overflow: hidden;
     height: 320px;
     display: flex;
@@ -305,7 +305,7 @@
 /* INTERACTIVE DISPLAY CARD */
 .flavor-display-card {
     position: relative;
-    border-radius: 12px;
+    border-radius: 4px;
     overflow: hidden;
     background: var(--color-dark-soft);
     border: 1px solid var(--color-border-dark);
@@ -824,7 +824,7 @@
 .heat-modal-box {
     background: var(--color-dark);
     border: 1px solid var(--color-border-dark);
-    border-radius: 8px;
+    border-radius: 4px;
     width: 90%;
     max-width: 600px;
     padding: 50px;

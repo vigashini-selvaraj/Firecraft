@@ -718,7 +718,7 @@
 }
 
 .services-intro-image img {
-    border-radius: 12px;
+    border-radius: 4px;
     width: 100%;
 }
 
@@ -1457,7 +1457,7 @@
 }
 
 .services-quality-img {
-    border-radius: 12px;
+    border-radius: 4px;
     width: 100%;
     box-shadow: 0 20px 40px rgba(0,0,0,0.2);
 }

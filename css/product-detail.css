@@ -253,7 +253,7 @@ h2 em {
 .detail-box {
     background: var(--color-dark);
     border: 1px solid var(--color-border-dark);
-    border-radius: 12px;
+    border-radius: 4px;
     padding: 30px;
 }
 
@@ -321,7 +321,7 @@ h2 em {
     flex: 1;
     height: 6px;
     background: var(--color-border-dark);
-    border-radius: 3px;
+    border-radius: 4px;
 }
 .heat-meter .bar.active {
     background: var(--color-red);
@@ -331,7 +331,7 @@ h2 em {
 /* Tabs Section */
 .pd-tabs-section {
     background: var(--color-dark);
-    border-radius: 12px;
+    border-radius: 4px;
     border: 1px solid var(--color-border-dark);
     padding: 30px;
     margin-bottom: 60px;
@@ -424,7 +424,7 @@ h2 em {
 
 .pairing-card {
     background: var(--color-dark);
-    border-radius: 12px;
+    border-radius: 4px;
     overflow: hidden;
     border: 1px solid var(--color-border-dark);
     transition: transform 0.3s, border-color 0.3s;
@@ -525,7 +525,7 @@ h2 em {
 
 .tutorial-image img {
     width: 100%;
-    border-radius: 12px;
+    border-radius: 4px;
     border: 1px solid var(--color-border-dark);
 }
 
@@ -552,7 +552,7 @@ h2 em {
 .review-card {
     background: var(--card-bg-light);
     padding: 40px;
-    border-radius: 12px;
+    border-radius: 4px;
     border: 1px solid var(--color-border-dark);
     text-align: left;
 }
@@ -684,7 +684,7 @@ h2 em {
 
 .related-card {
     background: var(--color-dark);
-    border-radius: 12px;
+    border-radius: 4px;
     overflow: hidden;
     border: 1px solid var(--color-border-dark);
     text-align: center;
@@ -808,7 +808,7 @@ body.light-theme .pd-price { color: #e53224 !important; }
 /* Custom Refinements */
 .pd-pairings-section h2 { font-family: var(--font-display); font-size: clamp(42px, 4.5vw, 68px); color: var(--color-text-light); margin-bottom: 20px; }
 .pd-pairings-section, .pd-tutorial-section, .pd-reviews-section, .pd-faq-section, .pd-related-section { padding: 50px 0 !important; }
-.custom-accordion .faq-item { background: var(--color-dark); margin-bottom: 15px; border: 1px solid var(--color-border-dark); border-radius: 8px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+.custom-accordion .faq-item { background: var(--color-dark); margin-bottom: 15px; border: 1px solid var(--color-border-dark); border-radius: 4px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
 .custom-accordion .faq-item:first-child { border-top: 1px solid var(--color-border-dark); }
 .faq-header { padding: 25px 30px; font-size: 18px; }
 .faq-content p { padding: 0 30px 25px; }
