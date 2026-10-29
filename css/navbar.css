@@ -37,6 +37,7 @@ body.light-theme #navbar-container .navbar {
     display: flex;
     align-items: center;
     width: 100%;
+    position: relative !important;
 }
 
 .nav-container,
@@ -167,51 +168,44 @@ body.light-theme .nav-links a.active {
     width: 0 !important;
 }
 
-/* Primary CTA Button in Header */
-.nav-cta-btn,
-.navbar .nav-cta-btn,
-.nav-actions .btn-primary {
-    display: inline-flex !important;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    height: 42px;
-    min-height: 42px;
-    padding: 0 20px;
-    background-color: #E53224 !important;
-    background: #E53224 !important;
-    color: #ffffff !important;
-    border-radius: 4px !important;
-    font-size: 13px;
-    font-weight: 800;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    text-decoration: none !important;
-    border: none !important;
-    cursor: pointer;
-    white-space: nowrap;
-    transition: all 0.2s ease;
-    box-shadow: 0 2px 8px rgba(229, 50, 36, 0.25);
-}
-
-.nav-cta-btn:hover,
-.navbar .nav-cta-btn:hover,
-.nav-actions .btn-primary:hover {
-    background-color: #f04b3d !important;
-    background: #f04b3d !important;
-    color: #ffffff !important;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 16px rgba(229, 50, 36, 0.45);
-}
-
-@media (max-width: 600px) {
+/* Primary CTA Button in Header (Desktop Only) */
+@media (min-width: 901px) {
     .nav-cta-btn,
     .navbar .nav-cta-btn,
-    .nav-actions .btn-primary {
-        height: 36px;
-        min-height: 36px;
-        padding: 0 12px;
-        font-size: 11px;
+    .nav-actions .btn-primary,
+    .nav-actions .nav-cta-btn {
+        display: inline-flex !important;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        height: 42px;
+        min-height: 42px;
+        padding: 0 20px;
+        background-color: #E53224 !important;
+        background: #E53224 !important;
+        color: #ffffff !important;
+        border-radius: 4px !important;
+        font-size: 13px;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        text-decoration: none !important;
+        border: none !important;
+        cursor: pointer;
+        white-space: nowrap;
+        transition: all 0.2s ease;
+        box-shadow: 0 2px 8px rgba(229, 50, 36, 0.25);
+    }
+
+    .nav-cta-btn:hover,
+    .navbar .nav-cta-btn:hover,
+    .nav-actions .btn-primary:hover,
+    .nav-actions .nav-cta-btn:hover {
+        background-color: #f04b3d !important;
+        background: #f04b3d !important;
+        color: #ffffff !important;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 16px rgba(229, 50, 36, 0.45);
     }
 }
 
@@ -220,13 +214,12 @@ body.light-theme .nav-links a.active {
 .nav-right {
     display: flex;
     align-items: center;
+    flex-direction: row !important;
     gap: 12px;
 }
 
 .nav-actions .nav-icon,
 .nav-right .icon-btn,
-.mobile-menu-btn,
-.hamburger-btn,
 .dir-toggle-btn,
 .theme-toggle-btn,
 .profile-btn,
@@ -234,10 +227,6 @@ html.light-theme .nav-actions .nav-icon,
 body.light-theme .nav-actions .nav-icon,
 html.light-theme .nav-right .icon-btn,
 body.light-theme .nav-right .icon-btn,
-html.light-theme .mobile-menu-btn,
-body.light-theme .mobile-menu-btn,
-html.light-theme .hamburger-btn,
-body.light-theme .hamburger-btn,
 html.light-theme .dir-toggle-btn,
 body.light-theme .dir-toggle-btn,
 html.light-theme .theme-toggle-btn,
@@ -256,6 +245,7 @@ body.light-theme .profile-btn {
     align-items: center;
     justify-content: center;
     font-size: 14px;
+    flex-shrink: 0 !important;
 }
 
 .nav-actions .nav-icon:hover,
@@ -287,32 +277,34 @@ body.light-theme .profile-btn {
     color: #F7F3EC !important;
 }
 
-/* Profile Dropdown */
+/* Profile Dropdown - ALWAYS VISIBLE ACROSS ALL BREAKPOINTS */
 .profile-dropdown-container,
 .dropdown {
     position: relative;
-    display: flex;
+    display: flex !important;
     align-items: center;
+    flex-shrink: 0 !important;
 }
 
 .profile-dropdown,
 .dropdown-content {
     display: none;
     position: absolute;
-    top: 40px;
+    top: calc(100% + 10px);
     right: 0;
     background-color: #151515 !important;
-    min-width: 130px;
-    border: 1px solid rgba(255,255,255,0.14) !important;
+    min-width: 140px;
+    border: 1px solid rgba(255,255,255,0.18) !important;
     border-radius: 4px;
-    box-shadow: 0 8px 16px rgba(0,0,0,0.5);
-    z-index: 1000;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.7);
+    z-index: 10002;
     flex-direction: column;
+    overflow: hidden;
 }
 
 .profile-dropdown.show,
 .dropdown-content.show {
-    display: flex;
+    display: flex !important;
 }
 
 @media (min-width: 901px) {
@@ -329,11 +321,14 @@ body.light-theme .profile-dropdown a,
 html.light-theme .dropdown-content a,
 body.light-theme .dropdown-content a {
     color: #F7F3EC !important;
-    padding: 12px 16px;
-    text-decoration: none;
+    padding: 12px 18px;
+    text-decoration: none !important;
     font-size: 13px;
     font-weight: 600;
     transition: background-color 0.2s, color 0.2s;
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .profile-dropdown a:hover,
@@ -342,23 +337,53 @@ html.light-theme .profile-dropdown a:hover,
 body.light-theme .profile-dropdown a:hover,
 html.light-theme .dropdown-content a:hover,
 body.light-theme .dropdown-content a:hover {
-    background-color: rgba(255,255,255,0.05) !important;
+    background-color: rgba(255,255,255,0.08) !important;
     color: #E53224 !important;
 }
 
+/* Hamburger / Mobile Menu Button */
 .hamburger-btn,
 .mobile-menu-btn {
     display: none !important;
-    background: transparent;
-    border: none;
+    background: transparent !important;
+    border: 1px solid rgba(255, 255, 255, 0.25) !important;
+    border-radius: 50% !important;
+    width: 40px !important;
+    height: 40px !important;
     color: #F7F3EC !important;
-    padding: 4px;
+    padding: 0 !important;
     cursor: pointer;
-    font-size: 20px;
+    font-size: 16px !important;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0 !important;
+    order: 99 !important;
+    transition: all 0.2s ease;
+}
+
+.hamburger-btn:hover,
+.mobile-menu-btn:hover {
+    border-color: rgba(255, 255, 255, 0.6) !important;
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    color: #E53224 !important;
 }
 
 .mobile-only {
-    display: none;
+    display: none !important;
+}
+
+.mobile-menu-cta {
+    background-color: #E53224 !important;
+    color: #ffffff !important;
+    text-align: center;
+    border-radius: 4px;
+    padding: 12px 20px !important;
+    margin-top: 10px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none !important;
+    box-shadow: 0 4px 12px rgba(229, 50, 36, 0.35);
 }
 
 @media (max-width: 1024px) {
@@ -367,22 +392,70 @@ body.light-theme .dropdown-content a:hover {
 }
 
 @media (max-width: 900px) {
-    .nav-container, .navbar-container { padding: 0 20px; }
+    .nav-container, .navbar-container {
+        padding: 0 16px;
+    }
+
+    /* Completely hide Shop Now CTA on mobile/tablet so hamburger button takes its place */
+    .nav-cta-btn,
+    .navbar .nav-cta-btn,
+    .nav-actions .btn-primary,
+    .nav-actions .nav-cta-btn,
+    a.nav-cta-btn,
+    a.btn-primary.nav-cta-btn {
+        display: none !important;
+        width: 0 !important;
+        height: 0 !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        border: none !important;
+        visibility: hidden !important;
+        pointer-events: none !important;
+    }
+
+    /* Ensure hamburger button is visible */
+    .hamburger-btn,
+    .mobile-menu-btn,
+    .navbar .mobile-menu-btn,
+    .nav-actions .mobile-menu-btn,
+    button.mobile-menu-btn {
+        display: flex !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        align-items: center !important;
+        justify-content: center !important;
+        background: transparent !important;
+        border: 1px solid rgba(255, 255, 255, 0.25) !important;
+        border-radius: 50% !important;
+        width: 40px !important;
+        height: 40px !important;
+        color: #F7F3EC !important;
+        padding: 0 !important;
+        cursor: pointer !important;
+        font-size: 16px !important;
+        flex-shrink: 0 !important;
+        order: 99 !important;
+    }
+
+    .nav-actions {
+        flex-direction: row !important;
+        gap: 8px !important;
+    }
     
     .nav-menu, .nav-center {
         display: none;
         flex-direction: column;
         position: absolute;
-        top: 80px;
+        top: 100%;
         left: 0;
         width: 100%;
         background-color: #080808 !important;
         padding: 24px 20px;
         border-bottom: 1px solid rgba(255,255,255,0.14);
         gap: 16px;
-        align-items: flex-start;
+        align-items: stretch;
         box-shadow: 0 10px 30px rgba(0,0,0,0.8);
-        z-index: 999;
+        z-index: 9999;
     }
 
     .nav-menu.show, .nav-center.show {
@@ -397,7 +470,93 @@ body.light-theme .dropdown-content a:hover {
 
     .brand-sub { display: none; }
     .brand-logo, .navbar .logo img { height: 44px; }
-    .hamburger-btn, .mobile-menu-btn { display: flex !important; }
-    .profile-dropdown-container.desktop-only { display: none !important; }
-    .mobile-only { display: block; }
+    .mobile-only { display: block !important; }
+}
+
+@media (max-width: 768px) {
+    .nav-actions {
+        flex-direction: row !important;
+        gap: 8px !important;
+    }
+    .nav-container, .navbar-container {
+        padding: 0 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar-container {
+        padding: 0 12px !important;
+    }
+    .navbar .logo {
+        gap: 8px !important;
+    }
+    .navbar .logo img {
+        height: 36px !important;
+    }
+    .navbar .logo-text {
+        font-size: 19px !important;
+    }
+    .nav-actions {
+        gap: 6px !important;
+        flex-direction: row !important;
+    }
+    .nav-actions .nav-icon,
+    .nav-actions .mobile-menu-btn,
+    .navbar .mobile-menu-btn,
+    .theme-toggle-btn,
+    .dir-toggle-btn,
+    .profile-btn {
+        width: 36px !important;
+        height: 36px !important;
+        font-size: 13px !important;
+        flex-shrink: 0 !important;
+        display: flex !important;
+        visibility: visible !important;
+    }
+    .mobile-menu-btn i {
+        font-size: 15px !important;
+    }
+}
+
+@media (max-width: 360px) {
+    .navbar,
+    #navbar-container .navbar {
+        height: 65px !important;
+    }
+    .navbar-container {
+        padding: 0 8px !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+    .navbar .logo {
+        gap: 6px !important;
+    }
+    .navbar .logo img {
+        height: 30px !important;
+        width: auto !important;
+    }
+    .navbar .logo-text {
+        font-size: 16px !important;
+        letter-spacing: 0.01em !important;
+    }
+    .nav-actions {
+        gap: 5px !important;
+        flex-direction: row !important;
+    }
+    .nav-actions .nav-icon,
+    .nav-actions .mobile-menu-btn,
+    .navbar .mobile-menu-btn,
+    .theme-toggle-btn,
+    .dir-toggle-btn,
+    .profile-btn {
+        width: 32px !important;
+        height: 32px !important;
+        font-size: 12px !important;
+        flex-shrink: 0 !important;
+        display: flex !important;
+        visibility: visible !important;
+    }
+    .mobile-menu-btn i {
+        font-size: 14px !important;
+    }
 }

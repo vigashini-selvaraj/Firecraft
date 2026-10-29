@@ -20,15 +20,11 @@
             <a href="services.html">Service</a>
             <a href="blog.html">Blog</a>
             <a href="contact.html">Contact</a>
+            <a href="products.html" class="mobile-menu-cta mobile-only">Shop Now</a>
         </nav>
 
         <!-- Navbar Actions -->
         <div class="nav-actions">
-
-            <!-- Mobile Menu Button (Placed here for flex order on mobile) -->
-            <button type="button" class="mobile-menu-btn" aria-label="Open Menu">
-                <i class="fa-solid fa-bars"></i>
-            </button>
 
             <button type="button" class="nav-icon theme-toggle-btn" aria-label="Toggle Theme">
                 <i class="fa-solid fa-moon"></i>
@@ -38,7 +34,22 @@
                 LTR
             </button>
 
+            <div class="profile-dropdown-container">
+                <button type="button" class="nav-icon profile-btn" aria-label="Profile">
+                    <i class="fa-solid fa-user"></i>
+                </button>
+                <div class="profile-dropdown">
+                    <a href="login.html">Login</a>
+                    <a href="register.html">Register</a>
+                </div>
+            </div>
+
             <a href="products.html" class="btn btn-primary nav-cta-btn">Shop Now</a>
+
+            <!-- Mobile Menu Button (Placed on right) -->
+            <button type="button" class="mobile-menu-btn" aria-label="Open Menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
 
         </div>
 

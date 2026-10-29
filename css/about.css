@@ -525,6 +525,57 @@ body.light-theme .pairing-card p {
         grid-template-columns: 1fr !important;
         gap: 24px !important;
     }
+    .animated-mascot {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin-left: 0 !important;
+    }
+    .story-caption {
+        left: 15px;
+        bottom: 15px;
+        right: 15px;
+        padding: 16px;
+    }
+    .story-caption strong {
+        font-size: 22px;
+    }
+    .story-visual img {
+        height: 340px;
+    }
+    .vm-number {
+        font-size: 80px;
+        top: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .story-copy h2, 
+    .philosophy-heading h2, 
+    .ingredients-copy h2, 
+    .timeline-heading h2, 
+    .pairings-heading h2,
+    .press-heading h2,
+    .team-copy h2 {
+        font-size: clamp(28px, 8vw, 36px);
+    }
+    .story-visual img {
+        height: 260px;
+    }
+    .team-visual img {
+        height: 240px;
+    }
+}
+
+@media (max-width: 360px) {
+    .story-caption {
+        position: static;
+        margin-top: 10px;
+    }
+    .story-copy p,
+    .ingredients-copy p,
+    .team-copy p {
+        font-size: 14px;
+    }
 }
 
 body.light-theme .vm-editorial-card,

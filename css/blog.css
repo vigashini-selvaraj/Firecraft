@@ -519,6 +519,8 @@ html.light-theme body.light-theme .blog-hero h1 {
     display: flex;
     flex-direction: column;
     min-width: 0;
+    padding: 24px 28px 28px !important;
+    box-sizing: border-box !important;
     animation: blogCardEnter 0.35s ease both;
 }
 
@@ -1027,7 +1029,8 @@ body.light-theme .blog-hero h1 span {
     background: #171513 !important;
     border: 1px solid rgba(255, 255, 255, 0.06) !important;
     border-radius: 4px;
-    padding: 22px 24px 26px !important;
+    padding: 24px 28px 28px !important;
+    box-sizing: border-box !important;
     transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -1078,6 +1081,8 @@ body.light-theme .recent-posts-section .blog-card {
     background: #ffffff !important;
     border: 1px solid rgba(0, 0, 0, 0.09) !important;
     box-shadow: 0 4px 18px rgba(0, 0, 0, 0.04);
+    padding: 24px 28px 28px !important;
+    box-sizing: border-box !important;
 }
 
 html.light-theme .recent-posts-section .blog-card:hover,
@@ -1404,6 +1409,11 @@ body.light-theme .recent-posts-section .filter-btn:hover {
     .blog-grid {
         grid-template-columns: 1fr;
         gap: 32px;
+    }
+
+    .blog-card,
+    .recent-posts-section .blog-card {
+        padding: 20px 20px 24px !important;
     }
 
     .blog-card-image {

@@ -119,12 +119,12 @@ body.light-theme {
 }
 
 /* Page Body & Main Content */
-html.light-theme main,
-body.light-theme main,
-html.light-theme section:not(.navbar):not(.footer),
-body.light-theme section:not(.navbar):not(.footer),
-html.light-theme article,
-body.light-theme article {
+html.light-theme main:not(.contact-page),
+body.light-theme main:not(.contact-page),
+html.light-theme section:not(.navbar):not(.footer):not(.contact-page *),
+body.light-theme section:not(.navbar):not(.footer):not(.contact-page *),
+html.light-theme article:not(.contact-page *),
+body.light-theme article:not(.contact-page *) {
     background-color: #f4ede3 !important;
     color: #171513 !important;
 }
@@ -161,8 +161,8 @@ html.light-theme .author-box,
 html.light-theme .sidebar-widget,
 html.light-theme .rc-sidebar,
 html.light-theme .contact-info-item,
-html.light-theme .contact-form,
-html.light-theme .faq-item,
+html.light-theme .contact-form:not(.contact-page *),
+html.light-theme .faq-item:not(.contact-page *),
 html.light-theme .modal-content,
 html.light-theme .tab-content,
 html.light-theme .spec-row,
@@ -202,8 +202,8 @@ body.light-theme .author-box,
 body.light-theme .sidebar-widget,
 body.light-theme .rc-sidebar,
 body.light-theme .contact-info-item,
-body.light-theme .contact-form,
-body.light-theme .faq-item,
+body.light-theme .contact-form:not(.contact-page *),
+body.light-theme .faq-item:not(.contact-page *),
 body.light-theme .modal-content,
 body.light-theme .tab-content,
 body.light-theme .spec-row,
@@ -320,6 +320,8 @@ body.light-theme .tab-btn.active {
 
 html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
+    max-width: 100vw;
 }
 
 body {
@@ -1730,7 +1732,7 @@ ul {
         display: flex;
         align-items: center;
         gap: 10px;
-        flex-direction: row-reverse;
+        flex-direction: row;
     }
 
     .desktop-only {
@@ -1960,7 +1962,7 @@ ul {
     }
 
     .hero-title {
-        font-size: 57px;
+        font-size: clamp(38px, 12vw, 48px);
     }
 
     .hero-buttons .btn {
@@ -1999,6 +2001,33 @@ ul {
         justify-content: center;
     }
 
+}
+
+@media (max-width: 360px) {
+    .container {
+        width: calc(100% - 24px) !important;
+    }
+
+    .hero-title {
+        font-size: 36px;
+    }
+
+    .section-heading h2,
+    .heat-intro h2,
+    .standard-content h2,
+    .story-content h2,
+    .wholesale-content h2 {
+        font-size: 32px;
+    }
+
+    .flavor-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .flavor-image {
+        width: 85px;
+        height: 85px;
+    }
 }
 
 /* =========================================================

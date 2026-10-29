@@ -14,8 +14,8 @@
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
     <!-- Global styles and existing navbar -->
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/style.css?v=3">
+    <link rel="stylesheet" href="css/navbar.css?v=3">
     <link rel="stylesheet" href="css/footer.css">
     <link rel="stylesheet" href="css/recipes.css">
 
@@ -39,19 +39,28 @@
                     <a href="recipes.html" class="active">Recipes</a>
                     <a href="services.html">Service</a>
                     <a href="blog.html">Blog</a>
-                    <a href="contact.html">Contact</a>
+                    <a href="products.html" class="mobile-menu-cta mobile-only">Shop Now</a>
                 </nav>
                 <div class="nav-actions">
-                    <button type="button" class="mobile-menu-btn" aria-label="Open Menu">
-                        <i class="fa-solid fa-bars"></i>
-                    </button>
                     <button type="button" class="nav-icon theme-toggle-btn" aria-label="Toggle Theme">
                         <i class="fa-solid fa-moon"></i>
                     </button>
                     <button type="button" class="nav-icon dir-toggle-btn" aria-label="Toggle Direction">
                         LTR
                     </button>
+                    <div class="profile-dropdown-container">
+                        <button type="button" class="nav-icon profile-btn" aria-label="Profile">
+                            <i class="fa-solid fa-user"></i>
+                        </button>
+                        <div class="profile-dropdown">
+                            <a href="login.html">Login</a>
+                            <a href="register.html">Register</a>
+                        </div>
+                    </div>
                     <a href="products.html" class="btn btn-primary nav-cta-btn">Shop Now</a>
+                    <button type="button" class="mobile-menu-btn" aria-label="Open Menu">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
                 </div>
             </div>
         </header>

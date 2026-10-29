@@ -113,8 +113,20 @@
 .contact-page .info-details span { display: block; margin-top: 3px; color: #817970; font-size: 14px; line-height: 1.7; }
 .contact-page .sidebar-note { display: flex; gap: 13px; margin-top: 38px; padding: 19px 21px; border-left: 2px solid var(--contact-red); background: rgba(255,255,255,.035); }
 .contact-page .sidebar-note-mark { color: var(--contact-gold); font-family: var(--font-display, "DM Serif Display", serif); font-size: 38px; line-height: .8; }
-.contact-page .sidebar-note p { margin: 0; color: #c1b7ad; font-family: var(--font-display, "DM Serif Display", serif); font-size: 17px; line-height: 1.55; }
-.contact-page .contact-form-box { min-width: 0; padding: clamp(28px, 4vw, 48px); border: 1px solid var(--color-border-dark, rgba(255,255,255,.13)); background: transparent !important; box-shadow: none !important; }
+.contact-page .contact-form-box,
+.contact-page .contact-form {
+  min-width: 0;
+  background: transparent !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+.contact-page .contact-form-box {
+  padding: clamp(28px, 4vw, 48px);
+  border: 1px solid var(--color-border-dark, rgba(255,255,255,.13));
+}
+.contact-page .contact-form {
+  border: none !important;
+}
 .contact-page .form-heading { margin-bottom: 30px; padding-bottom: 23px; border-bottom: 1px solid var(--color-border-dark, rgba(255,255,255,.13)); }
 .contact-page .form-step { color: var(--contact-gold); font-size: 12px; font-weight: 800; letter-spacing: .16em; }
 .contact-page .form-heading h2 { margin: 10px 0 7px; color: var(--contact-text); font-size: 38px; line-height: 1.15; }
@@ -195,7 +207,8 @@
   cursor: pointer;
   box-shadow: 0 4px 14px rgba(230, 59, 46, 0.3);
 }
-.contact-page .location-link:hover {
+.contact-page .location-link:hover,
+.contact-page .location-link:focus {
   background: #bd2d23 !important;
   border-color: #bd2d23 !important;
   color: #ffffff !important;
@@ -203,10 +216,12 @@
   box-shadow: 0 6px 20px rgba(230, 59, 46, 0.45);
 }
 .contact-page .location-link i {
+  color: #ffffff !important;
   font-size: 12px;
   transition: transform 0.2s ease;
 }
 .contact-page .location-link:hover i {
+  color: #ffffff !important;
   transform: translate(2px, -2px);
 }
 .contact-page .contact-map { position: relative; min-width: 0; height: 450px; overflow: hidden; border: 1px solid var(--contact-border); background: #1e1a16; box-shadow: 0 20px 45px rgba(0,0,0,.19); }
@@ -238,14 +253,25 @@
 .contact-page .faq-contact-link span { color: var(--contact-gold); }
 .contact-page .faq-item { border-bottom: 1px solid var(--contact-border); transition: background 0.25s ease, border-color 0.25s ease; border-radius: 4px; }
 .contact-page .faq-item:first-child { border-top: 1px solid var(--contact-border); }
-.contact-page .faq-item[aria-expanded="true"] { background: rgba(255, 255, 255, 0.035); border-color: rgba(230, 59, 46, 0.35); }
+.contact-page .faq-item[aria-expanded="true"],
+.contact-page .faq-item.active,
+.contact-page .faq-item.open {
+  background: rgba(255, 255, 255, 0.035) !important;
+  border-color: rgba(230, 59, 46, 0.35) !important;
+}
 .contact-page .faq-question { width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 22px 20px; border: 0; color: var(--contact-text); background: transparent; text-align: left; font-family: var(--font-body, "Manrope", sans-serif); font-size: 17px; font-weight: 700; line-height: 1.65; cursor: pointer; }
-.contact-page .faq-item[aria-expanded="true"] .faq-question { color: var(--contact-red) !important; }
+.contact-page .faq-item[aria-expanded="true"] .faq-question,
+.contact-page .faq-item.active .faq-question,
+.contact-page .faq-item.open .faq-question { color: var(--contact-red) !important; }
 .contact-page .faq-question:focus-visible { outline: 2px solid var(--contact-red); outline-offset: 4px; }
 .contact-page .faq-icon { flex: 0 0 auto; color: var(--contact-red); font-size: 13px; transition: transform .25s ease; }
-.contact-page .faq-item[aria-expanded="true"] .faq-icon { transform: rotate(45deg); color: var(--contact-red); }
+.contact-page .faq-item[aria-expanded="true"] .faq-icon,
+.contact-page .faq-item.active .faq-icon,
+.contact-page .faq-item.open .faq-icon { transform: rotate(45deg); color: var(--contact-red) !important; }
 .contact-page .faq-answer { max-height: 0; overflow: hidden; transition: max-height .35s ease; }
-.contact-page .faq-item[aria-expanded="true"] .faq-answer { max-height: 500px; }
+.contact-page .faq-item[aria-expanded="true"] .faq-answer,
+.contact-page .faq-item.active .faq-answer,
+.contact-page .faq-item.open .faq-answer { max-height: 500px !important; }
 .contact-page .faq-answer-inner { padding: 0 30px 22px 20px; color: var(--contact-muted); font-size: 16px; line-height: 1.9; }
 
 /* FINAL CTA */
@@ -364,13 +390,17 @@ body.light-theme .contact-page {
    LIGHT THEME FOR CONTACT PAGE - ALTERNATING SECTIONS
    White primary background, light grey alternates, subtle primary highlights
    ========================================================= */
-body.light-theme .contact-page {
+body.light-theme .contact-page,
+html.light-theme .contact-page,
+html.light-theme body.light-theme .contact-page {
   background: #ffffff !important;
   color: #171513 !important;
 }
 
 /* 1. Hero: Signature dark hero */
-body.light-theme .contact-page .contact-hero {
+body.light-theme .contact-page .contact-hero,
+html.light-theme .contact-page .contact-hero,
+html.light-theme body.light-theme .contact-page .contact-hero {
   background: #080807 !important;
   color: #f7f2ea !important;
 }
@@ -383,17 +413,25 @@ body.light-theme .contact-page .hero-assurance {
 }
 
 /* 2. Alternate Section: Promises (Light Grey) */
-body.light-theme .contact-page .contact-promise {
+body.light-theme .contact-page section.contact-promise,
+body.light-theme .contact-page .contact-promise,
+html.light-theme .contact-page section.contact-promise,
+html.light-theme .contact-page .contact-promise,
+html.light-theme body.light-theme .contact-page section.contact-promise,
+html.light-theme body.light-theme .contact-page .contact-promise {
   background: #f7f7f9 !important;
+  background-color: #f7f7f9 !important;
   border-top: 1px solid #ebebf0 !important;
   border-bottom: 1px solid #ebebf0 !important;
 }
 
 body.light-theme .contact-page .promise-item {
   border-right-color: #ebebf0 !important;
+  background: transparent !important;
 }
 
-body.light-theme .contact-page .promise-item h3 {
+body.light-theme .contact-page .promise-item h3,
+body.light-theme .contact-page .promise-item h2 {
   color: #171513 !important;
 }
 
@@ -402,8 +440,14 @@ body.light-theme .contact-page .promise-item p {
 }
 
 /* 3. Primary Section: Main Contact Form (White) */
-body.light-theme .contact-page .contact-main {
+body.light-theme .contact-page section.contact-main,
+body.light-theme .contact-page .contact-main,
+html.light-theme .contact-page section.contact-main,
+html.light-theme .contact-page .contact-main,
+html.light-theme body.light-theme .contact-page section.contact-main,
+html.light-theme body.light-theme .contact-page .contact-main {
   background: #ffffff !important;
+  background-color: #ffffff !important;
 }
 
 body.light-theme .contact-page .contact-sidebar h2 {
@@ -437,11 +481,25 @@ body.light-theme .contact-page .sidebar-note p {
 }
 
 /* Let's Get Started container: Transparent background, no white box */
-body.light-theme .contact-page .contact-form-box {
+body.light-theme .contact-page .contact-form-box,
+html.light-theme .contact-page .contact-form-box,
+html.light-theme body.light-theme .contact-page .contact-form-box,
+body.light-theme .contact-page .contact-form,
+html.light-theme .contact-page .contact-form,
+html.light-theme body.light-theme .contact-page .contact-form {
   background: transparent !important;
   background-color: transparent !important;
   box-shadow: none !important;
+}
+
+body.light-theme .contact-page .contact-form-box,
+html.light-theme .contact-page .contact-form-box {
   border: 1px solid rgba(23, 21, 19, 0.12) !important;
+}
+
+body.light-theme .contact-page .contact-form,
+html.light-theme .contact-page .contact-form {
+  border: none !important;
 }
 
 body.light-theme .contact-page .form-heading {
@@ -463,7 +521,7 @@ body.light-theme .contact-page .form-group label {
 body.light-theme .contact-page input,
 body.light-theme .contact-page textarea,
 body.light-theme .contact-page select {
-  background: #fbfbfd !important;
+  background: #ffffff !important;
   border: 1px solid #d9d9e2 !important;
   color: #171513 !important;
 }
@@ -477,8 +535,14 @@ body.light-theme .contact-page select:focus {
 }
 
 /* 4. Alternate Section: Response Steps (Light Grey) */
-body.light-theme .contact-page .response-section {
+body.light-theme .contact-page section.response-section,
+body.light-theme .contact-page .response-section,
+html.light-theme .contact-page section.response-section,
+html.light-theme .contact-page .response-section,
+html.light-theme body.light-theme .contact-page section.response-section,
+html.light-theme body.light-theme .contact-page .response-section {
   background: #f7f7f9 !important;
+  background-color: #f7f7f9 !important;
   border-top: 1px solid #ebebf0 !important;
   border-bottom: 1px solid #ebebf0 !important;
 }
@@ -491,8 +555,14 @@ body.light-theme .contact-page .response-heading p {
   color: #5e5952 !important;
 }
 
+body.light-theme .contact-page .response-steps {
+  border-color: #ebebf0 !important;
+  background: #ffffff !important;
+}
+
 body.light-theme .contact-page .response-step {
   border-right-color: #ebebf0 !important;
+  background: transparent !important;
 }
 
 body.light-theme .contact-page .response-step h3 {
@@ -503,9 +573,19 @@ body.light-theme .contact-page .response-step p {
   color: #5e5952 !important;
 }
 
+body.light-theme .contact-page .step-index {
+  color: rgba(23, 21, 19, 0.35) !important;
+}
+
 /* 5. Primary Section: Help Topics (White) */
-body.light-theme .contact-page .help-section {
+body.light-theme .contact-page section.help-section,
+body.light-theme .contact-page .help-section,
+html.light-theme .contact-page section.help-section,
+html.light-theme .contact-page .help-section,
+html.light-theme body.light-theme .contact-page section.help-section,
+html.light-theme body.light-theme .contact-page .help-section {
   background: #ffffff !important;
+  background-color: #ffffff !important;
 }
 
 body.light-theme .contact-page .help-section .section-heading-row h2 {
@@ -531,8 +611,14 @@ body.light-theme .contact-page .help-card p {
 }
 
 /* 6. Alternate Section: Location Map (Light Grey) */
-body.light-theme .contact-page .location-section {
+body.light-theme .contact-page section.location-section,
+body.light-theme .contact-page .location-section,
+html.light-theme .contact-page section.location-section,
+html.light-theme .contact-page .location-section,
+html.light-theme body.light-theme .contact-page section.location-section,
+html.light-theme body.light-theme .contact-page .location-section {
   background: #f7f7f9 !important;
+  background-color: #f7f7f9 !important;
   border-top: 1px solid #ebebf0 !important;
   border-bottom: 1px solid #ebebf0 !important;
 }
@@ -545,16 +631,38 @@ body.light-theme .contact-page .location-copy > p {
   color: #5e5952 !important;
 }
 
-body.light-theme .contact-page .location-link {
-  background: var(--contact-red) !important;
+/* CTA button in Our Location: Clearly visible during normal and hover interactions */
+.contact-page .location-link,
+body.light-theme .contact-page .location-link,
+html.light-theme .contact-page .location-link,
+html.light-theme body.light-theme .contact-page .location-link {
+  background: var(--contact-red, #e63b2e) !important;
   color: #ffffff !important;
-  border-color: var(--contact-red) !important;
+  border: 1px solid var(--contact-red, #e63b2e) !important;
+  box-shadow: 0 4px 14px rgba(230, 59, 46, 0.3) !important;
 }
 
-body.light-theme .contact-page .location-link:hover {
+.contact-page .location-link:hover,
+.contact-page .location-link:focus,
+body.light-theme .contact-page .location-link:hover,
+body.light-theme .contact-page .location-link:focus,
+html.light-theme .contact-page .location-link:hover,
+html.light-theme .contact-page .location-link:focus,
+html.light-theme body.light-theme .contact-page .location-link:hover {
   background: #bd2d23 !important;
   color: #ffffff !important;
   border-color: #bd2d23 !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 20px rgba(230, 59, 46, 0.45) !important;
+}
+
+.contact-page .location-link i,
+.contact-page .location-link:hover i,
+body.light-theme .contact-page .location-link i,
+body.light-theme .contact-page .location-link:hover i,
+html.light-theme .contact-page .location-link i,
+html.light-theme .contact-page .location-link:hover i {
+  color: #ffffff !important;
 }
 
 body.light-theme .contact-page .contact-map {
@@ -573,8 +681,14 @@ body.light-theme .contact-page .map-caption div > span {
 }
 
 /* 7. Primary Section: FAQ (Good to Know) (White) */
-body.light-theme .contact-page .faq-section {
+body.light-theme .contact-page section.faq-section,
+body.light-theme .contact-page .faq-section,
+html.light-theme .contact-page section.faq-section,
+html.light-theme .contact-page .faq-section,
+html.light-theme body.light-theme .contact-page section.faq-section,
+html.light-theme body.light-theme .contact-page .faq-section {
   background: #ffffff !important;
+  background-color: #ffffff !important;
 }
 
 body.light-theme .contact-page .faq-intro h2 {
@@ -591,11 +705,11 @@ body.light-theme .contact-page .faq-contact-link {
 
 body.light-theme .contact-page .faq-item {
   background: transparent;
-  border-bottom-color: #ebebf0 !important;
+  border-bottom: 1px solid #ebebf0 !important;
 }
 
 body.light-theme .contact-page .faq-item:first-child {
-  border-top-color: #ebebf0 !important;
+  border-top: 1px solid #ebebf0 !important;
 }
 
 body.light-theme .contact-page .faq-question {
@@ -606,18 +720,42 @@ body.light-theme .contact-page .faq-answer-inner {
   color: #5e5952 !important;
 }
 
-body.light-theme .contact-page .faq-item[aria-expanded="true"] {
+/* Open state container in Good to Know section (Light Theme) */
+body.light-theme .contact-page .faq-item[aria-expanded="true"],
+body.light-theme .contact-page .faq-item.active,
+body.light-theme .contact-page .faq-item.open,
+html.light-theme .contact-page .faq-item[aria-expanded="true"],
+html.light-theme .contact-page .faq-item.active,
+html.light-theme .contact-page .faq-item.open,
+html.light-theme body.light-theme .contact-page .faq-item[aria-expanded="true"],
+html.light-theme body.light-theme .contact-page .faq-item.active,
+html.light-theme body.light-theme .contact-page .faq-item.open {
   background: #f7f7f9 !important;
-  border-color: rgba(230, 59, 46, 0.35) !important;
+  border: 1px solid rgba(230, 59, 46, 0.35) !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04) !important;
 }
 
-body.light-theme .contact-page .faq-item[aria-expanded="true"] .faq-question {
+.contact-page .faq-item[aria-expanded="true"] .faq-question,
+.contact-page .faq-item.active .faq-question,
+.contact-page .faq-item.open .faq-question,
+body.light-theme .contact-page .faq-item[aria-expanded="true"] .faq-question,
+body.light-theme .contact-page .faq-item.active .faq-question,
+body.light-theme .contact-page .faq-item.open .faq-question,
+html.light-theme .contact-page .faq-item[aria-expanded="true"] .faq-question,
+html.light-theme .contact-page .faq-item.active .faq-question,
+html.light-theme .contact-page .faq-item.open .faq-question {
   color: #e63b2e !important;
 }
 
 /* 8. Highlighted Section: Final CTA (Subtle Primary Red Tint) */
-body.light-theme .contact-page .final-cta {
+body.light-theme .contact-page section.final-cta,
+body.light-theme .contact-page .final-cta,
+html.light-theme .contact-page section.final-cta,
+html.light-theme .contact-page .final-cta,
+html.light-theme body.light-theme .contact-page section.final-cta,
+html.light-theme body.light-theme .contact-page .final-cta {
   background: linear-gradient(180deg, #fff5f3 0%, #ffedea 100%) !important;
+  background-color: #fff5f3 !important;
   border-top: 1px solid rgba(230, 59, 46, 0.18) !important;
 }
 

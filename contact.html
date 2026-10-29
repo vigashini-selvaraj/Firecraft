@@ -12,8 +12,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/navbar.css">
+  <link rel="stylesheet" href="css/style.css?v=3">
+  <link rel="stylesheet" href="css/navbar.css?v=3">
   <link rel="stylesheet" href="css/footer.css">
   <link rel="stylesheet" href="css/contact.css?v=3">
 </head>
@@ -34,19 +34,28 @@
                   <a href="recipes.html">Recipes</a>
                   <a href="services.html">Service</a>
                   <a href="blog.html">Blog</a>
-                  <a href="contact.html" class="active">Contact</a>
+                  <a href="products.html" class="mobile-menu-cta mobile-only">Shop Now</a>
               </nav>
               <div class="nav-actions">
-                  <button type="button" class="mobile-menu-btn" aria-label="Open Menu">
-                      <i class="fa-solid fa-bars"></i>
-                  </button>
                   <button type="button" class="nav-icon theme-toggle-btn" aria-label="Toggle Theme">
                       <i class="fa-solid fa-moon"></i>
                   </button>
                   <button type="button" class="nav-icon dir-toggle-btn" aria-label="Toggle Direction">
                       LTR
                   </button>
+                  <div class="profile-dropdown-container">
+                      <button type="button" class="nav-icon profile-btn" aria-label="Profile">
+                          <i class="fa-solid fa-user"></i>
+                      </button>
+                      <div class="profile-dropdown">
+                          <a href="login.html">Login</a>
+                          <a href="register.html">Register</a>
+                      </div>
+                  </div>
                   <a href="products.html" class="btn btn-primary nav-cta-btn">Shop Now</a>
+                  <button type="button" class="mobile-menu-btn" aria-label="Open Menu">
+                      <i class="fa-solid fa-bars"></i>
+                  </button>
               </div>
           </div>
       </header>
@@ -191,7 +200,7 @@
       <div class="container faq-layout">
         <div class="faq-intro"><span class="section-eyebrow">GOOD TO KNOW</span><h2>Frequently asked <span>questions.</span></h2><p>Looking for a quick answer? Start here. If you still need help, send us a message.</p><a class="faq-contact-link" href="#contact-form-section">Ask us directly <span aria-hidden="true">↗</span></a></div>
         <div class="faq-accordion">
-          <article class="faq-item" aria-expanded="true"><button class="faq-question" type="button" aria-expanded="true"><span>How do I choose the right Firecraft sauce?</span><i class="fa-solid fa-plus faq-icon" aria-hidden="true"></i></button><div class="faq-answer"><div class="faq-answer-inner">It depends on your heat tolerance and flavor preferences. Explore the product descriptions and heat guide to compare sauces. You can also contact us for help narrowing down your options.</div></div></article>
+          <article class="faq-item active open" aria-expanded="true"><button class="faq-question" type="button" aria-expanded="true"><span>How do I choose the right Firecraft sauce?</span><i class="fa-solid fa-plus faq-icon" aria-hidden="true"></i></button><div class="faq-answer"><div class="faq-answer-inner">It depends on your heat tolerance and flavor preferences. Explore the product descriptions and heat guide to compare sauces. You can also contact us for help narrowing down your options.</div></div></article>
           <article class="faq-item" aria-expanded="false"><button class="faq-question" type="button" aria-expanded="false"><span>How do I understand the sauce heat levels?</span><i class="fa-solid fa-plus faq-icon" aria-hidden="true"></i></button><div class="faq-answer"><div class="faq-answer-inner">Check the heat rating and product description on the relevant sauce page or bottle label. If you are uncertain about a particular sauce, mention its name in your message.</div></div></article>
           <article class="faq-item" aria-expanded="false"><button class="faq-question" type="button" aria-expanded="false"><span>How can I ask about an order or delivery?</span><i class="fa-solid fa-plus faq-icon" aria-hidden="true"></i></button><div class="faq-answer"><div class="faq-answer-inner">Choose “Order support” in the contact form and include your order number. This helps the team understand which purchase you are asking about.</div></div></article>
           <article class="faq-item" aria-expanded="false"><button class="faq-question" type="button" aria-expanded="false"><span>Can I enquire about wholesale or bulk orders?</span><i class="fa-solid fa-plus faq-icon" aria-hidden="true"></i></button><div class="faq-answer"><div class="faq-answer-inner">Yes. Select “Wholesale &amp; retail” or “Brand partnerships” in the form and include a few details about your business and what you have in mind.</div></div></article>
@@ -268,58 +277,113 @@
       }
       enquiryType.addEventListener("change", syncOrderField);
 
-      document.getElementById("btn-partnership").addEventListener("click", () => {
-        enquiryType.value = "Wholesale & Retail";
-        syncOrderField();
-      });
+      const btnPartnership = document.getElementById("btn-partnership");
+      if (btnPartnership) {
+        btnPartnership.addEventListener("click", () => {
+          if (enquiryType) enquiryType.value = "Wholesale & Retail";
+          syncOrderField();
+        });
+      }
       if (window.location.hash === "#wholesale") {
-        enquiryType.value = "Wholesale & Retail";
+        if (enquiryType) enquiryType.value = "Wholesale & Retail";
         syncOrderField();
       }
 
-      contactForm.addEventListener("submit", (event) => {
-        event.preventDefault();
-        formMessage.className = "form-message";
-        formMessage.textContent = "";
-        if (!contactForm.checkValidity()) {
-          contactForm.reportValidity();
-          return;
-        }
+      if (contactForm && submitButton) {
+        contactForm.addEventListener("submit", (event) => {
+          event.preventDefault();
+          formMessage.className = "form-message";
+          formMessage.textContent = "";
+          if (!contactForm.checkValidity()) {
+            contactForm.reportValidity();
+            return;
+          }
 
-        /* Front-end demo only: connect this handler to your email/API service for real delivery. */
-        const originalButtonContent = submitButton.innerHTML;
-        submitButton.disabled = true;
-        submitButton.innerHTML = '<span>Preparing message…</span><i class="fa-solid fa-circle-notch fa-spin" aria-hidden="true"></i>';
-        window.setTimeout(() => {
-          formMessage.textContent = "Thanks for reaching out! This demo form has validated your message, but it is not connected to an email service yet.";
-          formMessage.classList.add("success");
-          submitButton.disabled = false;
-          submitButton.innerHTML = originalButtonContent;
-        }, 500);
+          /* Front-end demo only: connect this handler to your email/API service for real delivery. */
+          const originalButtonContent = submitButton.innerHTML;
+          submitButton.disabled = true;
+          submitButton.innerHTML = '<span>Preparing message…</span><i class="fa-solid fa-circle-notch fa-spin" aria-hidden="true"></i>';
+          window.setTimeout(() => {
+            formMessage.textContent = "Thanks for reaching out! This demo form has validated your message, but it is not connected to an email service yet.";
+            formMessage.classList.add("success");
+            submitButton.disabled = false;
+            submitButton.innerHTML = originalButtonContent;
+          }, 500);
+        });
+      }
+
+      initFaqAccordion();
+    });
+
+    function initFaqAccordion() {
+      const accordion = document.querySelector(".faq-accordion");
+      if (!accordion) return;
+
+      const faqItems = accordion.querySelectorAll(".faq-item");
+
+      // Set initial open/closed heights
+      faqItems.forEach((item) => {
+        const answer = item.querySelector(".faq-answer");
+        const button = item.querySelector(".faq-question");
+        const isOpen = item.classList.contains("active") || item.classList.contains("open") || item.getAttribute("aria-expanded") === "true";
+        if (isOpen) {
+          item.classList.add("active", "open");
+          item.setAttribute("aria-expanded", "true");
+          if (button) button.setAttribute("aria-expanded", "true");
+          if (answer) answer.style.maxHeight = (answer.scrollHeight || 300) + "px";
+        } else {
+          item.classList.remove("active", "open");
+          item.setAttribute("aria-expanded", "false");
+          if (button) button.setAttribute("aria-expanded", "false");
+          if (answer) answer.style.maxHeight = null;
+        }
       });
 
-      const faqItems = document.querySelectorAll(".faq-item");
-      faqItems.forEach((item) => {
-        const button = item.querySelector(".faq-question");
+      if (accordion.dataset.faqReady === "true") return;
+      accordion.dataset.faqReady = "true";
+
+      accordion.addEventListener("click", (e) => {
+        const button = e.target.closest(".faq-question");
+        if (!button) return;
+        e.preventDefault();
+
+        const item = button.closest(".faq-item");
+        if (!item) return;
+
         const answer = item.querySelector(".faq-answer");
-        if (item.getAttribute("aria-expanded") === "true") {
-          answer.style.maxHeight = answer.scrollHeight + "px";
-        }
-        button.addEventListener("click", () => {
-          const shouldOpen = item.getAttribute("aria-expanded") !== "true";
-          faqItems.forEach((other) => {
+        const isCurrentlyOpen = item.classList.contains("open") || item.getAttribute("aria-expanded") === "true";
+
+        // Close all other items
+        faqItems.forEach((other) => {
+          if (other !== item) {
+            other.classList.remove("active", "open");
             other.setAttribute("aria-expanded", "false");
-            other.querySelector(".faq-question").setAttribute("aria-expanded", "false");
-            other.querySelector(".faq-answer").style.maxHeight = null;
-          });
-          if (shouldOpen) {
-            item.setAttribute("aria-expanded", "true");
-            button.setAttribute("aria-expanded", "true");
-            answer.style.maxHeight = answer.scrollHeight + "px";
+            const otherBtn = other.querySelector(".faq-question");
+            if (otherBtn) otherBtn.setAttribute("aria-expanded", "false");
+            const otherAns = other.querySelector(".faq-answer");
+            if (otherAns) otherAns.style.maxHeight = null;
           }
         });
+
+        // Toggle current item: pop open if closed, collapse if open
+        if (isCurrentlyOpen) {
+          item.classList.remove("active", "open");
+          item.setAttribute("aria-expanded", "false");
+          button.setAttribute("aria-expanded", "false");
+          if (answer) answer.style.maxHeight = null;
+        } else {
+          item.classList.add("active", "open");
+          item.setAttribute("aria-expanded", "true");
+          button.setAttribute("aria-expanded", "true");
+          if (answer) answer.style.maxHeight = (answer.scrollHeight || 300) + "px";
+        }
       });
-    });
+    }
+
+    // Also run immediately in case DOM is already ready
+    if (document.readyState === "interactive" || document.readyState === "complete") {
+      initFaqAccordion();
+    }
   </script>
   <script src="js/navbar.js"></script>
   <script src="js/main.js"></script>

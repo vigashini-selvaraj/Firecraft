@@ -964,4 +964,142 @@ body.light-theme .heat-step-content p {
     color: #ffffff !important;
 }
 
+/* =====================================================
+   RESPONSIVE STYLES FOR PRODUCTS PAGE
+   ===================================================== */
+
+@media (max-width: 992px) {
+    .collection-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    .heat-scale-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+    .fp-layout {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+    .bundles-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .products-hero {
+        min-height: auto;
+        padding: 90px 0 60px;
+    }
+    .products-hero h1 {
+        font-size: clamp(38px, 9vw, 54px);
+    }
+    .collection-section,
+    .heat-scale-section,
+    .flavor-pairing-section,
+    .find-sauce-section,
+    .bundles-section {
+        padding: 60px 0;
+    }
+    .find-sauce-box {
+        padding: 40px 24px;
+    }
+    .find-sauce-box h2 {
+        font-size: 32px;
+    }
+    .section-heading {
+        margin-bottom: 40px;
+    }
+    .section-heading h2 {
+        font-size: 38px;
+    }
+}
+
+@media (max-width: 600px) {
+    .product-card {
+        flex-direction: column;
+    }
+    .product-image {
+        width: 100%;
+        height: 240px;
+    }
+    .product-info {
+        width: 100%;
+        padding: 24px 20px;
+    }
+    .product-info h3 {
+        font-size: 26px;
+    }
+    .hero-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+    .hero-buttons .btn {
+        width: 100%;
+        text-align: center;
+    }
+    .flavor-details {
+        padding: 24px 20px;
+    }
+    .bundle-card {
+        padding: 30px 20px;
+    }
+    .firecraft-cta {
+        min-height: auto;
+        padding: 70px 16px;
+    }
+    .firecraft-cta-btns {
+        flex-direction: column;
+        width: 100%;
+    }
+    .firecraft-cta-btns .btn {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .heat-scale-grid {
+        grid-template-columns: 1fr;
+    }
+    .heat-step {
+        height: 260px;
+    }
+    .flavor-tags {
+        gap: 8px;
+    }
+    .flavor-tag {
+        padding: 8px 16px;
+        font-size: 11px;
+    }
+    .find-sauce-box {
+        padding: 30px 16px;
+    }
+    .section-heading h2 {
+        font-size: 32px;
+    }
+}
+
+@media (max-width: 360px) {
+    .products-hero h1 {
+        font-size: 34px;
+    }
+    .product-info h3 {
+        font-size: 22px;
+    }
+    .product-actions {
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+    .product-actions .btn {
+        width: 100%;
+    }
+    .heat-step-content {
+        padding: 16px;
+    }
+    .heat-step-content h3 {
+        font-size: 22px;
+    }
+}
+
 
